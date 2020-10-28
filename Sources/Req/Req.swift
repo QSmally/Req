@@ -9,9 +9,11 @@
 struct Req {
     
     var url: String
-    var method: Method
+    var method: Method = Method(rawValue: "GET")!
     
-    func query(url: String, method: Method) -> Void {
-        
+    mutating func query(url: String, method: Method?) -> String {
+        if (method != nil) { self.method = method!; }
+        self.url = url;
+        return "foo bar"
     }
 }
