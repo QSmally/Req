@@ -7,6 +7,10 @@
 //
 
 struct Req {
+    
+    var url: String
+    var method: Method
+    
     func query(url: String, method: Method) -> Void {
         
     }
