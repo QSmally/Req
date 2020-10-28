@@ -7,5 +7,7 @@
 //
 
 struct Req {
-    var text = "Hello, World!"
+    func query(url: String, method: Method) -> Void {
+        
+    }
 }
