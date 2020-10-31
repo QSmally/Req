@@ -8,12 +8,17 @@
 
 struct Req {
     
-    var url: String
-    var method: Method = Method(rawValue: "GET")!
+    var url:    String
+    var method: Method = Method.GET
+    var output: Any
+    
     
     mutating func query(url: String, method: Method?) -> String {
+        
         if (method != nil) { self.method = method!; }
         self.url = url;
-        return "foo bar"
+
+        return "foo bar roo"
+        
     }
 }

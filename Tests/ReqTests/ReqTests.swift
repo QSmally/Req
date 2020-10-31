@@ -6,7 +6,10 @@ final class ReqTests: XCTestCase {
         // This is an example of a functional test case.
         // Use XCTAssert and related functions to verify your tests produce the correct
         // results.
-        XCTAssertEqual(Req().text, "Hello, World!")
+    }
+    
+    func baseTest() {
+//        XCTAssertEqual(Req().query(url: "awd", method: Method.POST), "foo bar")
     }
 
     static var allTests = [
