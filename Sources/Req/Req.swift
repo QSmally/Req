@@ -10,9 +10,14 @@ struct Req {
     
     var url: String
     
-    private var headers = [String: String]()
-    private var method: Method = Method.GET
-    private var output: Any
+    private var headers         = [String: String]()
+    private var response        = [String: Any]()
+    private var method: Method  = Method.GET
+    
+    
+    init(url: String) {
+        self.url = url
+    }
     
     
     mutating func header(key: String, value: String) -> Self {
