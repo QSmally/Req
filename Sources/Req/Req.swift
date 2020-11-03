@@ -16,7 +16,7 @@ struct Req {
     
     
     mutating func header(key: String, value: String) -> Self {
-        self.headers[key] = value;
+        self.headers[key] = value
         return self
     }
 }
