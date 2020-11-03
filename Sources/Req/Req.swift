@@ -10,16 +10,13 @@ struct Req {
     
     var url: String
     
+    private var headers = [String: String]()
     private var method: Method = Method.GET
     private var output: Any
     
     
-    mutating func query(url: String, method: Method?) -> String {
-        
-        if (method != nil) { self.method = method!; }
-        self.url = url;
-
-        return "foo bar roo"
-        
+    mutating func header(key: String, value: String) -> Self {
+        self.headers[key] = value;
+        return self
     }
 }
