@@ -8,9 +8,10 @@
 
 struct Req {
     
-    var url:    String
-    var method: Method = Method.GET
-    var output: Any
+    var url: String
+    
+    private var method: Method = Method.GET
+    private var output: Any
     
     
     mutating func query(url: String, method: Method?) -> String {

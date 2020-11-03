@@ -9,7 +9,7 @@ final class ReqTests: XCTestCase {
     }
     
     func baseTest() {
-//        XCTAssertEqual(Req().query(url: "awd", method: Method.POST), "foo bar")
+//        XCTAssertEqual(Req.query(url: "awd", method: Method.POST), "foo bar")
     }
 
     static var allTests = [
