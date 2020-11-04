@@ -13,7 +13,7 @@ struct Req {
     var url: URL
     
     private var headers         = [String: String]()
-    private var response        = [String: Any]()
+    private var response        = [Response]()
     private var method: Method  = Method.GET
     
     
@@ -37,5 +37,21 @@ struct Req {
     mutating func type(method: Method) -> Self {
         self.method = method
         return self
+    }
+    
+    mutating func send(completion: (_ response: Response) -> ()?) -> Void {
+        let request = URLRequest(url: self.url)
+
+        URLSession.shared.dataTask(with: request) { data, response, error in
+            if let data = data {
+                if let decodedResponse = try? JSONDecoder().decode(Response.self, from: data) {
+                    return DispatchQueue.main.async {
+                        self.response = [decodedResponse]
+                        completion(decodedResponse)
+                        print(decodedResponse)
+                    }
+                }
+            }
+        }.resume()
     }
 }
