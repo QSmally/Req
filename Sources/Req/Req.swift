@@ -21,7 +21,7 @@ struct Req {
         guard let baseUrl = URL(string: url) else {
             throw NSException(
                 name: NSExceptionName.invalidUnarchiveOperationException,
-                reason: "URL cannot be resolves or address is invalid"
+                reason: "URL cannot be resolved or address is invalid."
             ) as! Error
         }
         
