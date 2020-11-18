@@ -12,9 +12,9 @@ struct Req {
     
     var url: URL
     
-    private var headers         = [String: String]()
-    private var response        = [Response]()
-    private var method: Method  = Method.GET
+    var headers         = [String: String]()
+    var response        = [Response]()
+    var method: Method  = Method.GET
     
     
     init(url: String) throws {
@@ -34,7 +34,7 @@ struct Req {
         return self
     }
     
-    mutating func type(method: Method) -> Self {
+    mutating func method(method: Method) -> Self {
         self.method = method
         return self
     }
