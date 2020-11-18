@@ -39,15 +39,15 @@ struct Req {
         return self
     }
     
-    mutating func send(completion: (_ response: Response) -> ()?) -> Void {
+    mutating func send() -> Void {
         let request = URLRequest(url: self.url)
+        var this = self
 
         URLSession.shared.dataTask(with: request) { data, response, error in
             if let data = data {
                 if let decodedResponse = try? JSONDecoder().decode(Response.self, from: data) {
                     return DispatchQueue.main.async {
-                        self.response = [decodedResponse]
-                        completion(decodedResponse)
+                        this.response = [decodedResponse]
                         print(decodedResponse)
                     }
                 }
