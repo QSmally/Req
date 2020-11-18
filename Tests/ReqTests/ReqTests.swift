@@ -1,3 +1,4 @@
+
 import XCTest
 @testable import Req
 
@@ -9,7 +10,8 @@ final class ReqTests: XCTestCase {
     }
     
     func baseTest() {
-        XCTAssertEqual(try? Req(url: "https://example.com/").url, URL(string: "https://example.com/"))
+        let myReq = try? Req(url: "https://example.com/")
+        XCTAssertEqual(myReq?.url, URL(string: "https://example.com/"))
     }
 
     static var allTests = [
